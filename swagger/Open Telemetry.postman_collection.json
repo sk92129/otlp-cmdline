@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "4f6e9eac-d304-4abf-b013-6f5b76c3b4fb",
+		"name": "Open Telemetry",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2284675",
+		"_collection_link": "https://lunar-spaceship-929268.postman.co/workspace/Team-Workspace~ea283c9d-88d6-4710-8596-f2196c0768b8/collection/2284675-4f6e9eac-d304-4abf-b013-6f5b76c3b4fb?action=share&source=collection_link&creator=2284675"
+	},
+	"item": [
+		{
+			"name": "Spans GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9411/api/v2/spans?serviceName=backend",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9411",
+					"path": [
+						"api",
+						"v2",
+						"spans"
+					],
+					"query": [
+						{
+							"key": "serviceName",
+							"value": "backend"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spans GET by TraceName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9411/api/v2/spans?spanName=something?serviceName=backend",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9411",
+					"path": [
+						"api",
+						"v2",
+						"spans"
+					],
+					"query": [
+						{
+							"key": "spanName",
+							"value": "something?serviceName=backend"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spans Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"id\": \"352bff9a74ca9ad2\",\n    \"traceId\": \"5af7183fb1d4cf5f\",\n    \"parentId\": \"6b221d5bc9e6496c\",\n    \"name\": \"get /api\",\n    \"timestamp\": 1556604172355737,\n    \"duration\": 1431,\n    \"kind\": \"SERVER\",\n    \"localEndpoint\": {\n      \"serviceName\": \"backend\",\n      \"ipv4\": \"192.168.99.1\",\n      \"port\": 3306\n    },\n    \"remoteEndpoint\": {\n      \"ipv4\": \"172.19.0.2\",\n      \"port\": 58648\n    },\n    \"tags\": {\n      \"http.method\": \"GET\",\n      \"http.path\": \"/api\"\n    }\n  }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9411/api/v2/spans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9411",
+					"path": [
+						"api",
+						"v2",
+						"spans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spans Create Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"id\": \"352bff9a74ca9ad2\",\n    \"traceId\": \"5af7183fb1d4cf88\",\n    \"parentId\": \"6b221d5bc9e6496c\",\n    \"name\": \"something\",\n    \"timestamp\": 1556604172355737,\n    \"duration\": 1431,\n    \"kind\": \"SERVER\",\n    \"localEndpoint\": {\n      \"serviceName\": \"backend\",\n      \"ipv4\": \"192.168.99.1\",\n      \"port\": 3306\n    },\n    \"remoteEndpoint\": {\n      \"ipv4\": \"172.19.0.2\",\n      \"port\": 58648\n    },\n    \"tags\": {\n      \"http.method\": \"GET\",\n      \"http.path\": \"/api\"\n    }\n  }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9411/api/v2/spans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9411",
+					"path": [
+						"api",
+						"v2",
+						"spans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traces GET by serviceName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9411/api/v2/traces??serviceName=backend",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9411",
+					"path": [
+						"api",
+						"v2",
+						"traces"
+					],
+					"query": [
+						{
+							"key": "?serviceName",
+							"value": "backend"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traces GET by spanName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9411/api/v2/traces??spanName=something",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9411",
+					"path": [
+						"api",
+						"v2",
+						"traces"
+					],
+					"query": [
+						{
+							"key": "?spanName",
+							"value": "something"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traces traceID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9411/api/v2/trace/5af7183fb1d4cf88",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9411",
+					"path": [
+						"api",
+						"v2",
+						"trace",
+						"5af7183fb1d4cf88"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Services GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9411/api/v2/services?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9411",
+					"path": [
+						"api",
+						"v2",
+						"services"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
